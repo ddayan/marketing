@@ -11,7 +11,7 @@ p, li {
     visibility: visible;
 }
 
-.section#headerSection .textWrapper {
+.section#headerSection h1, .section#rnodeSection h1 {
     text-align: center;
 }
 
@@ -41,7 +41,7 @@ p, li {
 }
 
 .section#installSection {
-    padding: 10rem 0 2rem;
+    padding: 5rem 0 2rem;
 }
 
 .section#installSection #tab {
@@ -80,7 +80,7 @@ p, li {
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0);
     display: block;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .section#installSection #tab > .item img {
@@ -152,9 +152,16 @@ p, li {
     margin-bottom: .2rem;
 }
 
-.section#installSection .tabContent > .textWrapper p {
+.section#installSection .tabContent > .textWrapper p, .contentBlock p {
     margin: auto;
     word-spacing: 10px;
+}
+.section#installSection .contentBlock:not(:first-child) {
+    margin: 80px 0 0 0;
+}
+
+.contentBlock > p {
+    margin-bottom: 20px;
 }
 
 .section#installSection .tabContent > .flexWrapper .textWrapper {
@@ -211,7 +218,7 @@ p, li {
 
 @media (max-width: 1200px)  {
     .section#installSection {
-        padding: 10rem 0 2rem;
+        padding: 5rem 0 2rem;
     }
     .section#installSection #tab {
         width: 80%;
@@ -233,7 +240,7 @@ p, li {
         margin: 0 0 2rem;
     }
     .section#installSection {
-        padding: 10rem 0 4rem;
+        padding: 5rem 0 4rem;
     }
     .section#installSection .tabContent > .textWrapper p {
         width: auto;

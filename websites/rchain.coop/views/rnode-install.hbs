@@ -1,7 +1,6 @@
 <div class="section" id="headerSection">
     <div class="textWrapper">
         <h1>Installing RNode</h1>
-        <p>* Similar to <a>https://www.ethereum.org/cli</a></p>
     </div>
 </div>
 
@@ -17,154 +16,207 @@
         <div class="item tab" id="docker">
             <a href="javascript:void(0)">Docker</a>
         </div>
-        <div class="item tab" id="windows">
+        {{!-- <div class="item tab" id="windows">
             <a href="javascript:void(0)">Windows</a>
-        </div>
+        </div> --}}
     </div>
 
     <div class="tabContent active" id="macosContent">
-        <div class="textWrapper">
-            <p>Csean use homebrew now (waiting for rchain to fork github.com/ddayan/homebrew-rnode until then need to u <b>brew install ddayan/rhcain/rnode</b>)</p>
-        </div>
-        <div class="textWrapper">
-            <p>Install</p>
-            <div class="code">
-                <p>$ brew tap ddayan/rchain</p>
-                <p>$ brew install rnode</p>
+        <div class="contentBlock" style="margin-block-start: 1em; margin-block-end: 1em;">
+            <p><b>Homebrew</b></p>
+            <div class="textWrapper">
+                <p>Install</p>
+                <div class="code">
+                    <p> Setup <a href="https://brew.sh/"> Homebrew </a></p>
+                    <p>$ brew tap rchain/rchain</p>
+                    <p>$ brew install rnode</p>
+                </div>
+            </div>
+            <div class="textWrapper">
+                <p>Update</p>
+                <div class="code">
+                    <p>$ brew upgrade rnode</p>
+                </div>
+            </div>
+            <div class="textWrapper">
+                <p>Uninstall</p>
+                <div class="code">
+                    <p>$ brew uninstall rnode</p>
+                </div>
             </div>
         </div>
-        <div class="textWrapper">
-            <p>Update</p>
-            <div class="code">
-                <p>$ brew upgrade update</p>
+        <div class="contentBlock">
+            <div class="textWrapper">
+                <p><b>Tarball (rnode-0.x.x.tgz)</b></p>
             </div>
-        </div>
-        <div class="textWrapper">
-            <p>Uninstall</p>
-            <div class="code">
-                <p>$ brew uninstall rnode</p>
+            <div class="textWrapper" style="margin-top:20px; margin-bottom:20px">
+                <p style="margin-bottom:0">Dependencies:</p>
+                <ul style="margin-top:0">
+                    <li><a href="https://download.libsodium.org/doc/installation/" target="_blank">Libsodium</a></li>
+                    <li>Java 8 <a href="http://openjdk.java.net/install/" target="_blank">OpenJDK</a>/<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">Oracle</a></li>
+                </ul>
+            </div>
+            <div class="textWrapper">
+                <p>Install</p>
+                <div class="code">
+                    <p>Download <a href="https://github.com/rchain/rchain/releases"> RNode</a></p>
+                    <p>$ mkdir rnode && tar -xzvf rnode-0.x.x.tgz -C rnode/ --strip-components=1</p>
+                    <p>$ echo "export RNODE_DIR=$PWD/rnode" >> ~/.bash_profile</p>
+                    <p>$ echo "export PATH=\$RNODE_DIR/bin:\$PATH" >> ~/.bash_profile</p>
+                    <p>$ source ~/.bash_profile</p>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="tabContent" id="linuxContent">
-        <div class="textWrapper">
-            <p><a href="https://github.com/rchain/rchain/releases">Download RNode</a></p>
+        <p><b> Download <a href="https://github.com/rchain/rchain/releases"> RNode</a></b></p>
+        <div class="contentBlock">
             <p><b>Ubuntu / Debian (rnode_0.x.x_all.deb)</b></p>
-        </div>
-        <div class="textWrapper">
-            <p>Install</p>
-            <div class="code">
-                <p>$ apt install ./rnode_0.x.x_all.deb</p>
+            <div class="textWrapper">
+                <p>Install</p>
+                <div class="code">
+                    <p>$ apt install ./rnode_0.x.x_all.deb</p>
+                </div>
+            </div>
+            <div class="textWrapper">
+                <p>Update</p>
+                <div class="code">
+                    <p>$ systemctl stop rnode && apt remove rnode && rm -rf ~/.rnode/rspace && apt install ./rnode_0.x.x_all.deb</p>
+                </div>
+            </div>
+            <div class="textWrapper">
+                <p>Uninstall</p>
+                <div class="code">
+                    <p>$ systemctl stop rnode && apt remove rnode && rm -rf ~/.rnode</p>
+                </div>
             </div>
         </div>
-        <div class="textWrapper">
-            <p>Update</p>
-            <div class="code">
-                <p>$ systemctl stop rnode && apt remove rnode && rm -rf ~/.rnode/rspace && apt install ./rnode_0.x.x_all.deb/p>
+        <div class="contentBlock">
+            <p><b>Fedora / CentOS / Redhat (rnode-0.x.x-1.noarch.rpm)</b></p>
+            <div class="textWrapper">
+                <p>Install</p>
+                <div class="code">
+                    <p>$ dnf install ./rnode-0.x.x-1.noarch.rpm</p>
+                </div>
+            </div>
+            <div class="textWrapper">
+                <p>Update</p>
+                <div class="code">
+                    <p>$ systemctl stop rnode && dnf remove rnode && rm -rf ~/.rnode/rspace && dnf install ./rnode-0.x.x-1.noarch.rpm</p>
+                </div>
+            </div>
+            <div class="textWrapper">
+                <p>Uninstall</p>
+                <div class="code">
+                    <p>$ systemctl stop rnode && dnf remove rnode && rm -rf ~/.rnode/rspace</p>
+                </div>
             </div>
         </div>
-        <div class="textWrapper">
-            <p>Uninstall</p>
-            <div class="code">
-                <p>$ systemctl stop rnode && apt remove rnode && rm -rf ~/.rnode</p>
+        <div class="contentBlock">
+            <div class="textWrapper">
+                <p><b>Tarball (rnode-0.x.x.tgz)</b></p>
             </div>
-        </div>
-        <div class="textWrapper">
-            <p><b>Ubuntu / Debian (rnode_0.x.x_all.deb)</b></p>
-        </div>
-        <div class="textWrapper">
-            <p>Install</p>
-            <div class="code">
-                <p>$ dnf install ./rnode-0.x.x-1.noarch.rpm</p>
+            <div class="textWrapper" style="margin-top:20px; margin-bottom:20px">
+                <p style="margin-bottom:0">Dependencies:</p>
+                <ul style="margin-top:0">
+                    <li><a href="https://download.libsodium.org/doc/installation/" target="_blank">Libsodium</a></li>
+                    <li>Java 8 <a href="http://openjdk.java.net/install/" target="_blank">OpenJDK</a>/<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">Oracle</a></li>
+                </ul>
             </div>
-        </div>
-        <div class="textWrapper">
-            <p>Update</p>
-            <div class="code">
-                <p>$ systemctl stop rnode && dnf remove rnode && rm -rf ~/.rnode/rspace && dnf install ./rnode-0.x.x-1.noarch.rpm</p>
-            </div>
-        </div>
-        <div class="textWrapper">
-            <p>Uninstall</p>
-            <div class="code">
-                <p>$ systemctl stop rnode && dnf remove rnode && rm -rf ~/.rnode/rspace</p>
+            <div class="textWrapper">
+                <p>Install</p>
+                <div class="code">
+                    <p>$ mkdir rnode && tar -xzvf rnode-0.x.x.tgz -C rnode/ --strip-components=1</p>
+                    <p>$ echo "export RNODE_DIR=$PWD/rnode" >> ~/.bash_profile</p>
+                    <p>$ echo "export PATH=\$RNODE_DIR/bin:\$PATH" >> ~/.bash_profile</p>
+                    <p>$ source ~/.bash_profile</p>
+                </div>
             </div>
         </div>
     </div>
     
     <div class="tabContent" id="dockerContent">
         <div class="textWrapper">
-            <p><b>Docker</b></p>
-        </div>
-        <div class="textWrapper">
-            <p><b>Package (rnode-0.x.x.tgz)</b></p>
-        </div>
-        <div class="textWrapper">
-            <p><b>Package (rnode-0.x.x.tgz)</b></p>
-            <ul>
-                <li><b><a href="https://download.libsodium.org/doc/installation/" target="_blank">Libsodium</a></b></li>
-                <li><b>Java 8 <a href="http://openjdk.java.net/install/" target="_blank">OpenJDK</a>/<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">Oracle</a></b></li>
-            </ul>
-        </div>
-        <div class="textWrapper">
-            <p>Install</p>
+            <p> https://www.docker.com/get-started</p>
+            <p>Install/Update</p>
             <div class="code">
-                <p>$ mkdir rnode && tar -xzvf rnode-0.x.x.tgz -C rnode/ --strip-components=1</p>
-                <p>$ echo "export RNODE_DIR=$PWD/rnode" >> ~/.bash_profile</p>
-                <p>$ echo "export PATH=\$RNODE_DIR/bin:\$PATH" >> ~/.bash_profile</p>
-                <p>$ source ~/.bash_profile</p>
+                <p>$ docker pull rchain/rnode</p>
             </div>
         </div>
     </div>
-    
+{{!--
     <div class="tabContent" id="windowsContent">
         <div class="textWrapper">
-            <p>*New batch file is not straightforward to use and unpredictable*</p>
-            <p>*can use vm instead*</p>
-            <ul>
-                <li>Install vm</li>
-                <li>Configure bridge adapter for UPNP</li>
-                <li>Follow linux guides</li>
-                <li>Link to a step by step guide?</li>
-            </ul>
         </div>
-    </div>
+    </div> --}}
 
 </div>
 
 <div class="section" id="rnodeSection">
     <div class="textWrapper">
         <h1>Using RNode</h1>
-        <p>This guide briefly goes over the most useful modes and options of the official RChain client RNode. To explore all the available configurations please run the help option.</p>
-        <div class="code">
-            <p>$ rnode run --help</p>
-        </div>
     </div>
+    <h2>Interacting with the Testnet</h2>
+
+    <h3>Running a full Node</h3>
     <div class="textWrapper">
-        <p><b>Running a node that connects to the testnet *need to get the testnet bootstrap at rcon3*</b></p>
+        <p><b>Running a node that connects to the testnet</b></p>
         <p>Default data directory used is $HOME/.rnode</p>
         <div class="code">
-            <p>$ rnode run -b &lt;testnet bootstrap address&gt;</p>
-            <p>Example:</p>
-            <p>rnode run -b</p>
+            <p>$ rnode run -b "rnode://0af179d735fcebbfe12f0cfcb260025e65308456@52.119.8.200?protocol=40400&discovery=40404"</p>
         </div>
     </div>
     <div class="textWrapper">
+        <p>The first you use the run command the RNode client will create a node key-pair that will be used for node communications.</p>
+    </div>
+    <h3>Becoming a validator</h3>
+    <div class="textWrapper">
+        <p><b>Generating Validator Keys</b></p>
         <div class="code">
-            <p>rnode://acd0b05a971c243817a0cfd469f5d1a238c60294@52.119.8.109:40400</p>
+            {{!-- <p>cd $HOME</p> --}}
+            <p>$ rnode run -s --num-validators 1 --data_dir ~/rnode_validator_keys</p>
+            <p>Ctrl-C to exit when "[main] INFO  coop.rchain.casper.genesis.Genesis$ - Created validator xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx with bond 1" messege is displayed</p>
+            <p>$ cd ~/rnode_validator_keys</p>
+            <p>$ mv genesis/*.sk ./</p>
+            <p>$ ls ~/rnode_validator_keys | grep -v .sk | xargs rm -r</p>
+        </div>
+        <p> The rnode_validator_keys folder will have a sk file with the validator public key as the file name and the private key as the file content.</p>
+    </div>
+    <div class="textWrapper">
+        <p><b>Generating Bounding Files</b></p>
+        <p>Generating files that are needed for bonding by making use of testnet faucet. 
+            These files must be deployed to a node operated by a presently bonded validator. 
+            The rho files are created in the working directory where the command is executed. </p>
+        <div class="code">
+            <p>$ cd ~</p>
+            <p>$ rnode generateFaucetBondingDeploys --amount &lt;bond amount&gt; --private-key &lt;private key&gt; --public-key &lt;public key&gt; -s ed25519</p>
+            <p>$ RNODE_VALIDATOR_PUB_KEY=$(ls $HOME/rnode_validator_keys| sed -e 's/\.sk$//')</p>
+            <p>$ RNODE_VALIDATOR_PRI_KEY=$(cat $HOME/rnode_validator_keys/${RNODE_VALIDATOR_PUB_KEY}.sk)</p>
+            <p>$ rnode generateFaucetBondingDeploys --amount 1001 --private-key $RNODE_VALIDATOR_PRI_KEY --public-key $RNODE_VALIDATOR_PUB_KEY -s ed25519</p>
         </div>
     </div>
+
     <div class="textWrapper">
-        <p>The first you run this command the node client will create a node key-pair that will be used for node communications.</p>
-        <p>*Configuration file rnode.toml*</p>
+        <p><b>Bounding</b></p>
+        <p>Note: for security reasons it is best to deploy `forward*.rho` firstand then `bond*.rho` 
+            in a separate block afterwards (i.e. only deploy `bond*.rho` after `forward*.rho` has safely been included in a propsed block).
+            </p>
+        <div class="code">
+            <p>$ rnode run -b "rnode://cd92b9a1e3980f4af4a4bcd9c77750d336334ddd@52.119.8.200?protocol=40400&discovery=40404" --validator-private-key $RNODE_VALIDATOR_PRI_KEY</p>
+            <p>$ rnode --grpc-host 52.119.8.200 deploy --phlo-limit 10000000000 --phlo-price 1 forward_${RNODE_VALIDATOR_PUB_KEY}.rho</p>
+            <p>- Wait for a new block from 52.119.8.200</p>
+            <p>$ rnode --grpc-host 52.119.8.200 deploy --phlo-limit 10000000000 --phlo-price 1 bond_${RNODE_VALIDATOR_PUB_KEY}.rho</p>
+            <p>- Wait for a new block from 52.119.8.200 and take note of the block hash.</p>
+            <P>- Verify that you are bounded:</P>
+            <p>$ rnode show-block &lt;block hash&gt; | grep $RNODE_VALIDATOR_PUB_KEY</p>
+        </div>
+
+
+        {{!-- <p>If you wish to create a private network for a cheaper and faster testing environment you are able to create a network with predefined validators and a genesis block that specifies the wallets of the initial participants.</p>
+        <p>Running in standalone mode (-s option) will create a bonds file with five validators and no wallets. You can create a wallets file to distribute the initial coins, and a bonds file if you wish to have more control on the network validators.</p> --}}
     </div>
-    <div class="textWrapper">
-        <p><b>Running a private testnet</b></p>
-        <p>If you wish to create a private network for a cheaper and faster testing environment you are able to create a network with predefined validators and a genesis block that specifies the wallets of the initial participants.</p>
-        <p>Running in standalone mode (-s option) will create a bonds file with five validators and no wallets. You can create a wallets file to distribute the initial coins, and a bonds file if you wish to have more control on the network validators.</p>
-    </div>
-    <div class="textWrapper">
+    {{!-- <div class="textWrapper">
         <p>wallets.txt</p>
         <div class="code">
             <p>secp256k1 &lt;wallet public key&gt; &lt;amount&gt;</p>
@@ -172,32 +224,119 @@
             <p>secp256k1 &lt;wallet public key&gt; &lt;amount&gt;</p>
             <p>......</p>
             <p>Wallets.txt example:</p>
+            <p>secp256k1 &lt;e17C20292b2F1b0Ff887Dc32A73C259Fae25f03B&gt; &lt;1711668425&gt;</p>
+            <p>secp256k1 &lt;2B5634C42055806a59e9107ED44D43c426E58258&gt; &lt;1434501589&gt;</p>
+            <p>secp256k1 &lt;73C4a39f4726cA2E1cb35BDF0959FDd716C539A5&gt; &lt;1390532859&gt;</p>
+            <p>secp256k1 &lt;F6A69f6712Ed6E476752548D80dC4abECCE4D848&gt; &lt;110281574&gt;</p>
+            <p>secp256k1 &lt;c3DEa8DAE0dD05B30781b4eE4599539049A0659C&gt; &lt;1626061242&gt;</p>
+        </div>
+    </div> --}}
+    <h2>RNode Essentials</h2>
+    <p>This guide briefly goes over the most useful modes and options of the official RChain client RNode. To explore all the available configurations please run the help option.</p>
+    <div class="code">
+        <p>$ rnode --help</p>
+    </div>
+
+
+    <h3>Deploy</h3>
+    <div class="textWrapper">
+        <p>
+            Rholang is a turing complete programming language therefore developers can intentionally or accidentally create dapps that never terminate (“infinite loops”). To avoid these scenarios a termination model is needed, RChain uses the notion of “phlo”, short for phlogiston, to guarantee all deployed contracts are finite (Similar to Ethereum’s notion of Gas).  
+        </p>
+        <div class="code">
+            <p>The deploy parameters:</p>
+            <p>--from "0x12345" Purse address that will be used to pay for the deployment.</p>
+            <p>--phlo-limit x  The amount of phlo to use for the transaction (unused phlo is refunded).</p>
+            <p>--phlo-price y The price of phlo for this transaction in units dust/phlo.</p>
+            <p>--nonce z This allows to overwrite your own pending transactions that use the same nonce. </p>
+        </div>
+        <div class=code>
+            <p>-- Local Validator:</p>
+            <p>$ rnode deploy --from "0x12345" --phlo-limit x --phlo-price y --nonce z &lt;file name&gt;.rho</p>
+        </div>
+        <div class="code">
+            <p>-- Remote Validator:</p>
+            <p>$ rnode --grpc-host &lt;remote validator IP address&gt; deploy --from "0x12345" --phlo-limit x --phlo-price y --nonce z &lt;file name&gt;.rho</p>
+        </div>
+        <div class="code">
+            <p>Example:</p>
+            <p>$ rnode deploy --from "0x1" --phlo-limit 1 --phlo-price 1 --nonce 0 hello_world.rho</p>
         </div>
     </div>
+
+
+    <h3>Propose</h3>
+    <p>Force Casper (on an existing running node) to propose a block based on its accumulated deploys.</p>
+    <div class=code>
+        <p>-- Local Validator:</p>
+        <p>$ rnode propose</p>
+    </div>
+    <div class="code">
+        <p>-- Remote Validator:</p>
+        <p>$ rnode --grpc-host &lt;remote validator IP address&gt; propose</p>
+    </div>
+
+
+    <h3>REPL(Read–Eval–Print Loop) Mode</h3>
+    <p>Starts an interactive shell that enables the user to run rholang commands. This thin client will need to connect to an existing node.
+</p>
+    <div class=code>
+        <p>-- Local Validator:</p>
+        <p>$ rnode repl</p>
+    </div>
+    <div class="code">
+        <p>-- Remote Validator:</p>
+        <p>$ rnode --grpc-host <remote RNode IP address> repl</p>
+    </div>
+
+    <h3>EVAL Mode</h3>
+    <p>Starts a thin client that will evaluate rholang in file on a existing running node.</p>
+    <div class=code>
+        <p>-- Local Validator:</p>
+        <p>$ rnode eval hello_world.rho</p>
+    </div>
+    <div class="code">
+        <p>-- Remote Validator:</p>
+        <p>$ rnode --grpc-host &lt;remote RNode IP address&gt; eval hello_world.rho</p>
+    </div>
+
+    <h3>Block Explorer</h3>
+
+    <h4>show-blocks</h4>
+    <p>Displays the header of the last received block. Header includes number of blocks received and block hash. 
+        The n last block headers could be displayed using the depth parameter --depth.</p>
+    <div class="code">
+        <p>Show the header of the last received block:</p>
+        <p>$ rnode show-blocks</p>
+    </div>
+    <div class="code">
+        <p>Show the header of the last 5 received block:</p>
+        <p>$ rnode show-blocks --depth 5</p>
+    </div>
+    <h4>show-block</h4>
+    <p>View properties of a block known by Casper on an existing running node.Output includes: parent hashes, storage contents of the tuplespace.</p>
+    <div class="code">
+        <p>Show the header of the last 5 received block:</p>
+        <p>$ rnode show-block &lt; block hash &gt;</p>
+    </div>
+    <div class="code">
+        <p>Example:</p>
+        <p>$ rnode show-block &lt; 3ab221 &gt;</p>
+    </div>
+    <h3>Logs</h3>
+    <p>While running a RNode instance the user will notice that the console output if filled with INFO and WARN log messages, 
+        the warning logs will mostly be about unsuccessful connection attempts to nodes that no longer exist in the network and should be ignored. 
+        However for easier examination of the log statements the user might want a write the output to a log file so it could be archivable and searchable.</p>
+    <div class=code>
+        <p>-- Direct console output to a file:</p>
+        <p>$ rnode run -b &lt;testnet bootstrap address&gt; &gt;&gt; rnode_output 2&gt;&amp;1</p>
+    </div>
+    <div class="code">
+        <p>-- Keep console output and also save to file:</p>
+        <p>$ rnode run -b &lt;testnet bootstrap address&gt; 2&gt;&amp;1 | tee -a rnode_output</p>
+    </div>
+
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
